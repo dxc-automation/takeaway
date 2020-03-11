@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TC_001" configfailurepolicy="continue" parallel="tests" thread-count="2">
+    <!--    ENVIRONMENTS    -->
+    <!--    [1] alpha    -->
+    <!--    [2] beta     -->
+
+    <parameter name="browser"     value="chrome"/>
+
+    <listeners>
+        <listener class-name="com.demo.config.TestNGListener"/>
+    </listeners>
+
+    <test name="TC_01_PlaceOrder">
+        <parameter name="environment" value="alpha"/>
+        <classes>
+            <class name="com.demo.tests.TestCase_01">
+                <methods>
+                    <include name="openHome"/>
+                    <include name="search"/>
+                    <include name="selectRestaurant"/>
+                    <include name="placeOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
+
+
